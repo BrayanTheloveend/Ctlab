@@ -57,7 +57,7 @@ const Friends = () => {
 
       const Empty = <Flex mt={20}  flexDir={'column'} justify={'center'} align={'center'}>
         <Image src={image} w={28}/>
-        <Text textAlign={'center'} fontSize={'xs'} color={'gray.500'}>Vous n'avez aucune machine .</Text>
+        <Text textAlign={'center'} fontSize={'xs'} color={'gray.500'}>Vous n'avez aucun amies.</Text>
 
       </Flex>
   return (
