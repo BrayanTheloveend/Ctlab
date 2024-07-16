@@ -3,7 +3,7 @@ import axios from "axios"
 const monetbillUrlBase = 'https://api.monetbil.com/payment/v1'
 const paymentUrl = `${monetbillUrlBase}/placePayment`
 const checkStatusPaymentUrl = `${monetbillUrlBase}/checkPayment`
-const getDetailsPaymentUrl = `https://fr.monetbil.bj/checkPayment`
+const getDetailsPaymentUrl = `https://api.monetbil.com/transactions/`
 
 const paymentMonetbillWidget = 'https://api.monetbil.com/widget/v2.1/{service_key}' 
 
@@ -76,9 +76,9 @@ export const getRequestTopayStatut =async ()=>{
     let paymentId = localStorage.getItem('momoToken')
 
     try {
-        const momoPayementStatut = await axios.post(
-                checkStatusPaymentUrl,
-                JSON.stringify({paymentId: paymentId,  service: process.env.REACT_APP_MONETBILL_SECRET_KEY }),
+        const momoPayementStatut = await axios.get(
+                `${getDetailsPaymentUrl}${paymentId}`,
+                {id: paymentId},
                 {
                   headers: {
                     'Content-Type': 'application/json',

@@ -36,7 +36,7 @@ const ValidatePayment = () => {
                     await updateDoc(userDoc, newFields);
 
                     setTimeout(navigate, 480000,'/profile/Account')
-                    alert('Paiment effectué avec Succes!')
+                    //alert('Paiment effectué avec Succes!')
                 }else{
                     
 

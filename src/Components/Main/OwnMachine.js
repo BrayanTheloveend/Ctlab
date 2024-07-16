@@ -68,7 +68,7 @@ const OwnMachine = () => {
             <Text fontSize={'md'}>Mes Machines</Text>
         </Flex>
         <Text fontSize={'xs'} mt={2} mb={6} color={'gray.500'}>Voici la liste de vos machines achétées. <br />
-        Lorsque le delai durée d'exploitation d'une machine est expirée elle reste hors service jusqu'au prochain renouvellement.
+        Lorsque la durée d'exploitation d'une machine est expirée elle reste hors service jusqu'au prochain renouvellement.
         </Text>
 
         { machine.length !== 0 && <Flex justify={'center'} mt={6} my={2}>
