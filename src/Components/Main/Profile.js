@@ -31,6 +31,7 @@ const Profile = () => {
     //update amout after 24 hrs
   
     setupInterval(async()=>{
+        
         const data = await getDoc(doc(db, "users", savedData?.userId))
         const fetchDated = data.data()
         const userDoc = doc(db, "users", savedData?.userId);
