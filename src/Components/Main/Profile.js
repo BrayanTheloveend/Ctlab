@@ -93,7 +93,7 @@ const Profile = () => {
       const logOut =()=>{
         auth.signOut()
         localStorage.setItem('userData', undefined)
-        navigate('/regis')
+        setTimeout(navigate, 0, '/regis')
       }
 
   return (
@@ -130,10 +130,10 @@ const Profile = () => {
             <Box>
                <Flex gap={1} justifyContent={'end'}>
                     <Button fontSize={'sm'} fontWeight={500} colorScheme='gray' color={'green.400'}  size={'sm'} onClick={()=>navigate('/transWidthRem/noreply/machine/none/amout/2000')}>Recharge</Button>
-                    <Button isDisabled={isLoading ? isLoading :  !(users?.allowWidthdraw > (highestMachine[0]?.withdrawDay + 1)) } fontSize={'sm'} fontWeight={500} colorScheme='gray' color={'red.400'} size={'sm'} onClick={()=>navigate('/transWidthRem/withdrmig/machine/none/amout/2000')}>Retrait</Button>
+                    <Button isDisabled={isLoading ? isLoading :  !(users?.allowWidthdraw > (highestMachine?.[0]?.withdrawDay + 1)) } fontSize={'sm'} fontWeight={500} colorScheme='gray' color={'red.400'} size={'sm'} onClick={()=>navigate('/transWidthRem/withdrmig/machine/none/amout/2000')}>Retrait</Button>
                 </Flex> 
 
-                { earn !== 0 && !isLoading && <Text mt={2} fontSize={'xs'}>retrait disponible dans {(highestMachine[0]?.withdrawDay - users?.allowWidthdraw) < 0 ? 0 : highestMachine[0]?.withdrawDay - users?.allowWidthdraw} jours </Text>}
+                { earn !== 0 && !isLoading && <Text mt={2} fontSize={'xs'}>retrait disponible dans {(highestMachine?.[0].withdrawDay - users?.allowWidthdraw) < 0 ? 0 : highestMachine?.[0]?.withdrawDay - users?.allowWidthdraw} jours </Text>}
             </Box>
             
             

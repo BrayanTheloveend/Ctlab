@@ -141,7 +141,7 @@ const Login = () => {
                 await getDocs(query(collectionRef,where('codeparrain','==',payload.code)))
                 .then(async parain =>{
                     //console.log(parain.docs)
-                    await addDoc(collectionRef, {...payload, codeparrain: CodeGenerator(6) , TimeStamp: new Date(), friends: [ !parain.empty && parain.docs[0].id ], machine: [], minning: false, solde: 0, allowWidthdraw: 0, history: []})
+                    await addDoc(collectionRef, {...payload, codeparrain: CodeGenerator(6) , TimeStamp: new Date(), friends: !parain.empty ? [parain.docs[0].id] : [], machine: [], minning: false, solde: 0, allowWidthdraw: 0, history: []})
                         .then(async resp =>{
                             //console.log(resp)
 
@@ -166,7 +166,7 @@ const Login = () => {
                                     password: '',
                                 })
 
-                                    setTimeout(navigate, 0, '/')
+                                setTimeout(navigate, 0, '/')
 
                              })
 
